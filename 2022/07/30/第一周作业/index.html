@@ -1,0 +1,648 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. 图文并茂解释开源许可证 GPL、BSD、MIT、Mozilla、Apache和LGPL的区别？GPL 开源许可证：允许任何人观看、修改，并散播程序软件里的原始程序码，条件是如果你要发布修改后的版本就要连源代码一起公布，不允许修改后和衍生的代码做为闭源的商业软件发布和销售，Linux就是采用了GPL协议，GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一周作业">
+<meta property="og:url" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="5-12 23:30">
+<meta property="og:description" content="1. 图文并茂解释开源许可证 GPL、BSD、MIT、Mozilla、Apache和LGPL的区别？GPL 开源许可证：允许任何人观看、修改，并散播程序软件里的原始程序码，条件是如果你要发布修改后的版本就要连源代码一起公布，不允许修改后和衍生的代码做为闭源的商业软件发布和销售，Linux就是采用了GPL协议，GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730143711092.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659168928036-d2538131-af51-4c73-ac56-b478f395a2fc.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169174618-eb60cb26-df6c-4eb4-a91a-b2be39221322.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169199658-fef26176-569b-405e-840d-f4988f148981.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169337399-7dcc0c27-278e-4a31-9ce2-5b020a762c4b.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169423345-f21a1ee3-a13f-474b-9362-be3a76a44595.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169488554-760aaeb6-d0fa-4388-8aa0-4f58425e0ff3.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169568818-1927fead-44ba-40d9-a9dd-98b008ff7f12.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169652484-7465e1e0-91e1-4125-8bee-1ceceb38fa72.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169844366-41447d46-f56c-4baf-a297-c894d6ab3342.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/1659169992477-60fed80b-8ad6-4f1c-a5f6-8d616ddd10d6.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730195108941.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730195218617.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730195329784.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730195417752.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730195513272.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730195552056.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730195657122.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730195825887.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730200802918.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730200847829.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730200931183.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730201000595.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730201137245.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730201336584.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730201436991.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730201454571.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730201517427.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730201644498.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730201943760.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730202030764.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730202106906.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730202158004.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730202329827.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730202412710.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730202443553.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730203732839.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730204001274.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730170830864.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730171026243.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730171129226.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730171226978.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730171426826.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730170830864.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730171758402.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730172938650.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730173538886.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730173634309.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730173759213.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730174037590.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730175442266.png">
+<meta property="og:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730175240992.png">
+<meta property="article:published_time" content="2022-07-30T13:34:14.000Z">
+<meta property="article:modified_time" content="2022-07-30T13:37:12.954Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/07/30/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220730143711092.png">
+  
+  
+  <title>第一周作业 - 5-12 23:30</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="第一周作业">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-07-30 13:34" pubdate>
+        July 30, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      11k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      88 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第一周作业</h1>
+            
+            <div class="markdown-body">
+              <h1 id="1-图文并茂解释开源许可证-GPL、BSD、MIT、Mozilla、Apache和LGPL的区别？"><a href="#1-图文并茂解释开源许可证-GPL、BSD、MIT、Mozilla、Apache和LGPL的区别？" class="headerlink" title="1. 图文并茂解释开源许可证 GPL、BSD、MIT、Mozilla、Apache和LGPL的区别？"></a>1. 图文并茂解释开源许可证 GPL、BSD、MIT、Mozilla、Apache和LGPL的区别？</h1><p>GPL 开源许可证：允许任何人观看、修改，并散播程序软件里的原始程序码，条件是如果你要发布修改后的版本就要连源代码一起公布，不允许修改后和衍生的代码做为闭源的商业软件发布和销售，Linux就是采用了GPL协议，GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础</p>
+<p>BSD开源许可证：BSD许可证使用者可以商业集成很友好的协议，允许使用者自由的使用，修改源代码，也可以将修改后的代码作为开源或者专有软件再发布，但要满足三个要求（1）如果再发布的产品中包含源代码，则在源代码中必须带有原来代码中的BSD协议（2）如果再发布的只是二进制类库/软件，则需要在类库/软件的文档和版权声明中包含原来代码中的BSD协议（3）不可以用开源代码的作者、机构名字和原来产品的名字做市场推广</p>
+<p>MIT开源许可证：MIT是和BSD一样宽范的许可协议。你必须在你的发行版里包含原许可协议的声明，无论你是以二进制发布的还是以源代码发布的。作者只想保留版权，而无任何其他了限制，较BSD协议宽松</p>
+<p>Mozilla开源许可证： 允许免费重发布、免费修改，但要求修改后的代码版权归软件的发起者。要求所有再发布者都得有一个专门的文件就对源代码程序修改的时间和修改的方式有描述。允许一个企业在自己已有的源代码库上加一个接口，除了接口程序的源代码以MPL 许可证的形式对外许可外，源代码库中的源代码就可以不用MPL许可证的方式强制对外许可</p>
+<p>Apache开源许可证：由著名的非盈利开源组织Apache采用的协议。该协议和BSD类似，同样鼓励代码共享和尊重原作者的著作权，同样允许代码修改，再发布（作为开源或商业软件）需要满足4个要求（1）需要给代码的用户一份Apache 许可证 （2）如果修改了代码，需要再被修改的文件中说明 （3）在延伸的代码中（修改和有源代码衍生的代码中）需要带有原来代码中的协议，商标，专利声明和其他原来作者规定需要包含的说明 （4）如果再发布的产品中包含一个Notice文件，则在Notice文件中需要带有Apache Licence。你可以在Notice中增加自己的许可，但不可以表现为对Apache Licence构成更改</p>
+<p>LGPL开源许可证：LGPL 允许以动态链接使用开源库。采用LGPL的代码，一般情况下它本身就是一个第三方库（LGPL最早的名字就是Library GPL），这时候开发人员仅仅用到了它的功能，而没有对库本身进行任何修改，那么开发人员也不必公布自己的商业源代码。但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须开源，并且采用LGPL协议</p>
+<p><img src="image-20220730143711092.png" srcset="/img/loading.gif" lazyload alt="image-20220730143711092"></p>
+<h1 id="2-安装各发行版系统的安装-centos-rockylinux-ubuntu-等"><a href="#2-安装各发行版系统的安装-centos-rockylinux-ubuntu-等" class="headerlink" title="2.安装各发行版系统的安装(centos, rockylinux, ubuntu, 等)"></a>2.安装各发行版系统的安装(centos, rockylinux, ubuntu, 等)</h1><h3 id="1-centos7安装流程"><a href="#1-centos7安装流程" class="headerlink" title="1.centos7安装流程"></a>1.centos7安装流程</h3><h4 id="1-1下载镜像文件"><a href="#1-1下载镜像文件" class="headerlink" title="1.1下载镜像文件"></a>1.1下载镜像文件</h4><p>阿里的镜像：<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/centos/7/isos/x86_64/">https://mirrors.aliyun.com/centos/7/isos/x86_64/</a></p>
+<p><img src="1659168928036-d2538131-af51-4c73-ac56-b478f395a2fc.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>选择DVD-2009.iso文件进行下载，可以选择使用迅雷下载速度会比较快</p>
+<p>下载链接：<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-2009.iso?spm=a2c6h.25603864.0.0.74092d1cHCOZxe">https://mirrors.aliyun.com/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-2009.iso?spm=a2c6h.25603864.0.0.74092d1cHCOZxe</a></p>
+<h4 id="1-2虚拟机安装"><a href="#1-2虚拟机安装" class="headerlink" title="1.2虚拟机安装"></a>1.2虚拟机安装</h4><p>安装使用VMware16进行，下载链接如下</p>
+<p>VMware16 下载地址：<a target="_blank" rel="noopener" href="https://download.csdn.net/download/u014644574/75713616">https://download.csdn.net/download/u014644574/75713616</a></p>
+<p>创建虚拟机，配置类型选择典型即可</p>
+<p><img src="1659169174618-eb60cb26-df6c-4eb4-a91a-b2be39221322.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="1659169199658-fef26176-569b-405e-840d-f4988f148981.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>将下载好的iso文件填入，点击下一步</p>
+<p><img src="1659169337399-7dcc0c27-278e-4a31-9ce2-5b020a762c4b.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>根据情况填写对应虚拟机信息，下一步</p>
+<p><img src="1659169423345-f21a1ee3-a13f-474b-9362-be3a76a44595.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>将虚拟机的位置修改不是系统盘下面，下一步</p>
+<p><img src="1659169488554-760aaeb6-d0fa-4388-8aa0-4f58425e0ff3.png" srcset="/img/loading.gif" lazyload alt="img">、</p>
+<p>分配磁盘空间的大小，下一步</p>
+<p><img src="1659169568818-1927fead-44ba-40d9-a9dd-98b008ff7f12.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>选择自定义硬件，将内存，CPU，网络按照具体需要进行分配，改完点击完成即可</p>
+<p><img src="1659169652484-7465e1e0-91e1-4125-8bee-1ceceb38fa72.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="1659169844366-41447d46-f56c-4baf-a297-c894d6ab3342.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>之后系统会进行自动检查</p>
+<p><img src="1659169992477-60fed80b-8ad6-4f1c-a5f6-8d616ddd10d6.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>会自动进入安装页面选择第一个进行安装</p>
+<p><img src="image-20220730195108941.png" srcset="/img/loading.gif" lazyload alt="image-20220730195108941"></p>
+<p>选择键盘，一般默认即可</p>
+<p><img src="image-20220730195218617.png" srcset="/img/loading.gif" lazyload alt="image-20220730195218617"></p>
+<p>DATE&amp;TIME，修改为上海时间</p>
+<p><img src="image-20220730195329784.png" srcset="/img/loading.gif" lazyload alt="image-20220730195329784"></p>
+<p>磁盘不想做分区的话默认</p>
+<p><img src="image-20220730195417752.png" srcset="/img/loading.gif" lazyload alt="image-20220730195417752"></p>
+<p>安装方式可以选择图形化安装，想最小化安装则无需修改</p>
+<p><img src="image-20220730195513272.png" srcset="/img/loading.gif" lazyload alt="image-20220730195513272"></p>
+<p>网络开启，主机名根据需要进行修改</p>
+<p><img src="image-20220730195552056.png" srcset="/img/loading.gif" lazyload alt="image-20220730195552056"></p>
+<p>其他选项不需要修改，开始安装需要修改root密码，注意root密码如果过于简单需要done两次才能成功，user可以不进行创建</p>
+<p><img src="image-20220730195657122.png" srcset="/img/loading.gif" lazyload alt="image-20220730195657122"></p>
+<p>等待下方任务结束即可完成</p>
+<p><img src="image-20220730195825887.png" srcset="/img/loading.gif" lazyload alt="image-20220730195825887"></p>
+<p>完成后进行重启</p>
+<p><img src="image-20220730200802918.png" srcset="/img/loading.gif" lazyload alt="image-20220730200802918"></p>
+<p>首次进入</p>
+<p><img src="image-20220730200847829.png" srcset="/img/loading.gif" lazyload alt="image-20220730200847829"></p>
+<p>选择第一个接受协议</p>
+<p><img src="image-20220730200931183.png" srcset="/img/loading.gif" lazyload alt="image-20220730200931183"></p>
+<p><img src="image-20220730201000595.png" srcset="/img/loading.gif" lazyload alt="image-20220730201000595"></p>
+<p>一路默认即可进入，完成安装</p>
+<p><img src="image-20220730201137245.png" srcset="/img/loading.gif" lazyload alt="image-20220730201137245"></p>
+<h3 id="1-Ubuntu20-04安装流程"><a href="#1-Ubuntu20-04安装流程" class="headerlink" title="1.Ubuntu20.04安装流程"></a>1.Ubuntu20.04安装流程</h3><p>准备工作与前面一样，直接从安装流程开始    </p>
+<p><img src="image-20220730201336584.png" srcset="/img/loading.gif" lazyload alt="image-20220730201336584"></p>
+<p>默认选择英文键盘，默认继续</p>
+<p><img src="image-20220730201436991.png" srcset="/img/loading.gif" lazyload alt="image-20220730201436991"></p>
+<p>默认</p>
+<p><img src="image-20220730201454571.png" srcset="/img/loading.gif" lazyload alt="image-20220730201454571"></p>
+<p>这里可以进行ip修改不需要修改可以默认</p>
+<p><img src="image-20220730201517427.png" srcset="/img/loading.gif" lazyload alt="image-20220730201517427"></p>
+<p>默认</p>
+<p><img src="image-20220730201644498.png" srcset="/img/loading.gif" lazyload alt="image-20220730201644498"></p>
+<p>修改这里的地址为阿里云的地址</p>
+<p><img src="image-20220730201943760.png" srcset="/img/loading.gif" lazyload alt="image-20220730201943760"></p>
+<p>默认选项</p>
+<p><img src="image-20220730202030764.png" srcset="/img/loading.gif" lazyload alt="image-20220730202030764"></p>
+<p><img src="image-20220730202106906.png" srcset="/img/loading.gif" lazyload alt="image-20220730202106906"></p>
+<p>添加用户，设置密码·</p>
+<p><img src="image-20220730202158004.png" srcset="/img/loading.gif" lazyload alt="image-20220730202158004"></p>
+<p>空格勾选下opensssh服务</p>
+<p><img src="image-20220730202329827.png" srcset="/img/loading.gif" lazyload alt="image-20220730202329827"></p>
+<p><img src="image-20220730202412710.png" srcset="/img/loading.gif" lazyload alt="image-20220730202412710"></p>
+<p>等待安装</p>
+<p><img src="image-20220730202443553.png" srcset="/img/loading.gif" lazyload alt="image-20220730202443553"></p>
+<p>重启</p>
+<p><img src="image-20220730203732839.png" srcset="/img/loading.gif" lazyload alt="image-20220730203732839"></p>
+<p>登录成功</p>
+<p><img src="image-20220730204001274.png" srcset="/img/loading.gif" lazyload alt="image-20220730204001274"></p>
+<h1 id="3-Linux中总结，"><a href="#3-Linux中总结，" class="headerlink" title="3.Linux中总结，"></a>3.Linux中总结，</h1><h1 id="1）如何通过一个简短的关键字，例如process-获取相关的命令。"><a href="#1）如何通过一个简短的关键字，例如process-获取相关的命令。" class="headerlink" title="1）如何通过一个简短的关键字，例如process 获取相关的命令。"></a>1）如何通过一个简短的关键字，例如process 获取相关的命令。</h1><p>使用命令不知道具体用法时，可以通过type关键字查看它是外部命令还是内部命令，显示有路径说明是外部命令，显示为shell说明是内部命令</p>
+<p><img src="image-20220730170830864.png" srcset="/img/loading.gif" lazyload alt="image-20220730170830864"></p>
+<p><img src="image-20220730171026243.png" srcset="/img/loading.gif" lazyload alt="image-20220730171026243"></p>
+<p>对于内部命令，查看帮助信息输入 “help [命令] ”</p>
+<p><img src="image-20220730171129226.png" srcset="/img/loading.gif" lazyload alt="image-20220730171129226"></p>
+<p>对于外部命令，查看帮助信息输入 “ [命令] –help”</p>
+<p><img src="image-20220730171226978.png" srcset="/img/loading.gif" lazyload alt="image-20220730171226978"></p>
+<p>也可以通过“man  [命令]”的方式查看外部命令</p>
+<p><img src="image-20220730171426826.png" srcset="/img/loading.gif" lazyload alt="image-20220730171426826"></p>
+<h1 id="2）通过命令的描述，选择一个命令，获取命令的man文档。"><a href="#2）通过命令的描述，选择一个命令，获取命令的man文档。" class="headerlink" title="2）通过命令的描述，选择一个命令，获取命令的man文档。"></a>2）通过命令的描述，选择一个命令，获取命令的man文档。</h1><p>例如tail命令，通过type确认tail命令属于外部命令</p>
+<p><img src="image-20220730170830864.png" srcset="/img/loading.gif" lazyload alt="image-20220730170830864"></p>
+<p>通过“man  tail”的方式查看man的文档</p>
+<p><img src="image-20220730171758402.png" srcset="/img/loading.gif" lazyload alt="image-20220730171758402"></p>
+<p>tail_man.txt文件内容如下</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></div></td><td class="code"><pre><code class="hljs markdown">TAIL(1)                                                                                                                                                             FSF                                                                                                                                                            TAIL(1)<br><br><br><br>NAME(名<br><span class="hljs-code">       tail - 输出文件的末尾部分</span><br><span class="hljs-code"></span><br>SYNOPSIS(总<br><span class="hljs-code">       ../src/tail [OPTION]... [FILE]...</span><br><span class="hljs-code"></span><br>DESCRIPTION(描<br><span class="hljs-code">       在标准输出上显示每个FILE的最后10行.  如果多于一个FILE,会一个接一个地显示, 并在每个文件显示的首部给出文件名.  如果没有FILE,或者FILE是-,那么就从标准输入上读取.</span><br><span class="hljs-code"></span><br><span class="hljs-code">       --retry</span><br><span class="hljs-code">              即使tail开始时就不能访问 或者在tail运行后不能访问,也仍然不停地尝试打开文件.  -- 只与-f合用时有用.</span><br><span class="hljs-code"></span><br><span class="hljs-code">       -c, --bytes=N</span><br><span class="hljs-code">              输出最后N个字节</span><br><span class="hljs-code"></span><br><span class="hljs-code">       -f, --follow[=&#123;name|descriptor&#125;]</span><br><span class="hljs-code">              当文件增长时,输出后续添加的数据; -f, --follow以及 --follow=descriptor 都是相同的意思</span><br><span class="hljs-code"></span><br><span class="hljs-code">       -n, --lines=N</span><br><span class="hljs-code">              输出最后N行,而非默认的最后10行</span><br><span class="hljs-code"></span><br><span class="hljs-code">       --max-unchanged-stats=N</span><br><span class="hljs-code">              参看texinfo文档(默认为5)</span><br><span class="hljs-code"></span><br><span class="hljs-code">       --max-consecutive-size-changes=N</span><br><span class="hljs-code">              参看texinfo文档(默认为200)</span><br><span class="hljs-code"></span><br><span class="hljs-code">       --pid=PID</span><br><span class="hljs-code">              与-f合用,表示在进程ID,PID死掉之后结束.</span><br><span class="hljs-code"></span><br><span class="hljs-code">       -q, --quiet, --silent</span><br><span class="hljs-code">              从不输出给出文件名的首部</span><br><span class="hljs-code"></span><br><span class="hljs-code">       -s, --sleep-interval=S</span><br><span class="hljs-code">              与-f合用,表示在每次反复的间隔休眠S秒</span><br><span class="hljs-code"></span><br><span class="hljs-code">       -v, --verbose</span><br><span class="hljs-code">              总是输出给出文件名的首部</span><br><span class="hljs-code"></span><br><span class="hljs-code">       --help 显示帮助信息后退出</span><br><span class="hljs-code"></span><br><span class="hljs-code">       --version</span><br><span class="hljs-code">              输出版本信息后退出</span><br><span class="hljs-code"></span><br><span class="hljs-code">       如果N(字节或者行数)的第一个字符为`+&#x27;, 那么从每个文件的开头算起的第N项开始显示, 否则, 显示该文件的最后N项.  N可以有一个倍数前缀: b表示512,k表示1024,m表示1048576(1兆).  第一个选项 -VALUE 或+VALUE 以-n VALUE或-n +VALUE 方式看待,除非VALUE含有[bkm]后缀倍数 中的一个,在这种情况下,它被看作 -c VALUE 或者-c +VALUE</span><br><span class="hljs-code"></span><br><span class="hljs-code">       使用--follow      (-f)时,tail默认后接文件描述符,      这意味着即使tail显示的文件改名了,tail仍然可以      追踪到其末尾部分.      如果你确实希望查询文件的实际名而非文件描述符     (例如,日志轮转时),     这种默认的操作就不是你所期望的了.      在这种情况下应使用--follow=name.      这将导致tail通过周期性地重新打开所指定的文件来</span><br><span class="hljs-code">       追踪其是否被删除了,或者被其他程序重新创建了.</span><br><span class="hljs-code"></span><br>AUTHOR(作<br><span class="hljs-code">       Paul Rubin, David MacKenzie, Ian Lance Taylor和Jim Meyering.</span><br><span class="hljs-code"></span><br>REPORTING BUGS (报<br><span class="hljs-code">       请报告bugs到&lt;bug-textutils@gnu.org&gt;.</span><br><span class="hljs-code"></span><br>COPYRIGHT(版<br><span class="hljs-code">       Copyright © 1999 Free Software Foundation, Inc.</span><br><span class="hljs-code">       This is free software; see the source for copying conditions.  There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br><span class="hljs-code"></span><br>SEE ALSO (另<br><span class="hljs-code">       tail 的完整文档是以Texinfo手册形式维护的.  如果 info 和 tail 程序在你那儿都已经安装好了,那么命令</span><br><span class="hljs-code"></span><br><span class="hljs-code">              info tail</span><br><span class="hljs-code"></span><br><span class="hljs-code">       应该会让你访问到整篇手册.</span><br><span class="hljs-code"></span><br><br>[中<br><span class="hljs-code">       riser &lt;boomer@ccidnet.com&gt;</span><br><span class="hljs-code"></span><br>[中<br><span class="hljs-code">       2001/08/08</span><br><span class="hljs-code"></span><br>《<br><span class="hljs-code">       http://cmpp.linuxforum.net</span><br><span class="hljs-code"></span><br><br><br>GNU textutils 2.0a                                                                                                                                              1999年12月                                                                                                                                                         TAIL(1)<br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="3）解读man文档，man分几个部分？man每个部分的解释，特别是语法部分。-lt-gt-…等各代表什么含义。"><a href="#3）解读man文档，man分几个部分？man每个部分的解释，特别是语法部分。-lt-gt-…等各代表什么含义。" class="headerlink" title="3）解读man文档，man分几个部分？man每个部分的解释，特别是语法部分。&lt;&gt;, [] …等各代表什么含义。"></a>3）解读man文档，man分几个部分？man每个部分的解释，特别是语法部分。&lt;&gt;, [] …等各代表什么含义。</h1><p>man文档的内容结构</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-type">Name</span>	命令的名称和用途（摘要）<br>Synopsis	命令语法（摘要）<br>Description	完整描述<br>Environment	命令使用的环境变量<br>Author	作者<br>Files	对该命令重要的文件列表<br>See <span class="hljs-keyword">also</span>	查看相关的信息的位置<br><span class="hljs-keyword">Diagnostics</span>	可能的错误和警告<br>Bugs	错误、缺点、警告<br><br></code></pre></td></tr></table></figure>
+
+<p>我们在使用man文档查看命令时主要看命令的语法和描述信息已取出的tail命令为例，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">NAME(名<br>       <span class="hljs-built_in">tail</span> - 输出文件的末尾部分  <br></code></pre></td></tr></table></figure>
+
+<p>表示tail命令是用来输出文件末尾部分</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css">SYNOPSIS(总<br>       ../<span class="hljs-attribute">src</span>/tail <span class="hljs-selector-attr">[OPTION]</span>... <span class="hljs-selector-attr">[FILE]</span>...<br></code></pre></td></tr></table></figure>
+
+<p>表示tail后面可选option选项，但必须有指定查看的文件，可跟多个</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">DESCRIPTION(描<br>       在标准输出上显示每个<span class="hljs-keyword">FILE</span>的最后<span class="hljs-number">10</span>行.  如果多于一个<span class="hljs-keyword">FILE</span>,会一个接一个地显示, 并在每个文件显示的首部给出文件名.  如果没有<span class="hljs-keyword">FILE</span>,或者<span class="hljs-keyword">FILE</span>是-,那么就从标准输入上读取.<br><br>       <span class="hljs-comment">--retry</span><br>              即使tail开始时就不能访问 或者在tail运行后不能访问,也仍然不停地尝试打开文件.  <span class="hljs-comment">-- 只与-f合用时有用.</span><br><br>       -c, <span class="hljs-comment">--bytes=N</span><br>              输出最后N个字节<br><br>       -f, <span class="hljs-comment">--follow[=&#123;name|descriptor&#125;]</span><br>              当文件增长时,输出后续添加的数据; -f, <span class="hljs-comment">--follow以及 --follow=descriptor 都是相同的意思</span><br><br>       -n, <span class="hljs-comment">--lines=N</span><br>              输出最后N行,而非默认的最后<span class="hljs-number">10</span>行<br><br>       <span class="hljs-comment">--max-unchanged-stats=N</span><br>              参看texinfo文档(默认为<span class="hljs-number">5</span>)<br><br>       <span class="hljs-comment">--max-consecutive-size-changes=N</span><br>              参看texinfo文档(默认为<span class="hljs-number">200</span>)<br><br>       <span class="hljs-comment">--pid=PID</span><br>              与-f合用,表示在进程ID,PID死掉之后结束.<br><br>       -q, <span class="hljs-comment">--quiet, --silent</span><br>              从不输出给出文件名的首部<br><br>       -s, <span class="hljs-comment">--sleep-interval=S</span><br>              与-f合用,表示在每次反复的间隔休眠S秒<br><br>       -v, <span class="hljs-comment">--verbose</span><br>              总是输出给出文件名的首部<br><br>       <span class="hljs-comment">--help 显示帮助信息后退出</span><br><br>       <span class="hljs-comment">--version</span><br>              输出版本信息后退出<br></code></pre></td></tr></table></figure>
+
+<p>有tail多个选项的具体用法，例如 -n  表示输出最后N行,默认的最后10行，也可以指定行数</p>
+<p><img src="image-20220730172938650.png" srcset="/img/loading.gif" lazyload alt="image-20220730172938650"></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">AUTHOR</span>(作<br>       Paul Rubin, David MacKenzie, Ian Lance Taylor和Jim Meyering.<br><br>REPORTING BUGS (报<br>       请报告bugs到&lt;bug-textutils<span class="hljs-variable">@gnu</span>.org&gt;.<br><br>COPYRIGHT(版<br>       Copyright © <span class="hljs-number">1999</span> Free Software Foundation, Inc.<br>       This is free software; see the source for copying conditions.  There is NO warranty; <span class="hljs-keyword">not</span> even for MERCHANTABILITY <span class="hljs-keyword">or</span> FITNESS FOR A PARTICULAR PURPOSE.<br><br>SEE ALSO (另<br>       tail 的完整文档是以Texinfo手册形式维护的.  如果 info 和 tail 程序在你那儿都已经安装好了,那么命令<br><br>              info tail<br><br>       应该会让你访问到整篇手册.<br><br><br>[中<br>       riser &lt;boomer<span class="hljs-variable">@ccidnet</span>.com&gt;<br><br>[中<br>       <span class="hljs-number">2001</span>/<span class="hljs-number">08</span>/<span class="hljs-number">08</span><br><br>《<br>       <span class="hljs-attribute">http</span>:<span class="hljs-comment">//cmpp.linuxforum.net</span><br><br><br><br>GNU textutils <span class="hljs-number">2.0</span>a                                                                                                                                              <span class="hljs-number">1999</span>年<span class="hljs-number">12</span>月                                                                                         <br></code></pre></td></tr></table></figure>
+
+<p>后面的是类似作者，位置信息等一般不会使用</p>
+<h1 id="4）根据语法部分-简要的写几个操作。"><a href="#4）根据语法部分-简要的写几个操作。" class="headerlink" title="4）根据语法部分 简要的写几个操作。"></a>4）根据语法部分 简要的写几个操作。</h1><p>已tail命令为例</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">tail  -f  <span class="hljs-regexp">/var/</span>log/messages         <span class="hljs-comment">#动态查看系统的日志信息</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="image-20220730173538886.png" srcset="/img/loading.gif" lazyload alt="image-20220730173538886"></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tail</span>  -n  <span class="hljs-number">5</span>                     #查看文件的最后<span class="hljs-number">5</span>行<br></code></pre></td></tr></table></figure>
+
+<p><img src="image-20220730173634309.png" srcset="/img/loading.gif" lazyload alt="image-20220730173634309"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">tail</span>  --version        <span class="hljs-comment">#查看版本信息</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="image-20220730173759213.png" srcset="/img/loading.gif" lazyload alt="image-20220730173759213"></p>
+<h1 id="4-切换到-etc-目录，列出fstab文件的详细信息，详细解决fstab一行，每个或每几个字符的详细含义。"><a href="#4-切换到-etc-目录，列出fstab文件的详细信息，详细解决fstab一行，每个或每几个字符的详细含义。" class="headerlink" title="4.切换到/etc/目录，列出fstab文件的详细信息，详细解决fstab一行，每个或每几个字符的详细含义。"></a>4.切换到/etc/目录，列出fstab文件的详细信息，详细解决fstab一行，每个或每几个字符的详细含义。</h1><p> fstab文件包含了需要挂载的设备，相应的挂载点，以及属性等信息</p>
+<p>查看fstab</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">cat  <span class="hljs-regexp">/etc/</span>fstab<br></code></pre></td></tr></table></figure>
+
+<p><img src="image-20220730174037590.png" srcset="/img/loading.gif" lazyload alt="image-20220730174037590"></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">设备名   目录挂载点  文件系统  挂载参数  (<span class="hljs-number">0.1</span>)是否开始备份  (<span class="hljs-number">0.1</span>.<span class="hljs-number">2</span>)开机是否检测磁盘<br><span class="hljs-regexp">/dev/</span>vdb2  /bj     ext4   defaults      <span class="hljs-number">0</span>                 <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+<p>第一列为mount命令所挂载的设备名,如/dev/mapper/rhel-root </p>
+<p>第二列为mount命令的挂载点。挂载点必须是一个已存在的目录，如根目录。</p>
+<p>第三列为文件系统的类型可以根据设备分区文件系统进行填写，如xfs分区，swap交换分区，ext4分区等等。</p>
+<p>第四列为mount命令的选项即挂载参数。</p>
+<p>这里的defaults表示：rw, suid, dev, exec, auto, nouser, and async。</p>
+<p>rw表示文件系统可以读写。</p>
+<p>suid表示当前用户权限和创建该文件的用户权限一样。</p>
+<p>dev表示识别文件系统中的字符设备和块设备。与其对应的是nodev。</p>
+<p>exec表示可以在设备上运行二进制文件。与其对应的是noexec。</p>
+<p>auto表示执行mount -a是会执行该条目。与其对应的是noauto。</p>
+<p>nosuer表示只有root才能挂载该设备。与其对应的是user。</p>
+<p>async表示对该设备的写入操作不会立刻写入设备，而在随后的某个时刻写入。与其对应的是sync。</p>
+<p>第五列表示是否使用dump备份该文件系统，如果是0，dump将忽略该文件系统。大多数情况下该列都为0.</p>
+<p>第六列表示是否检验扇区：开机的过程中，系统默认会以fsck检验我们系统是否为完整。0表示不检测，1 最早检验（一般根目录会选择最早检验）2 1级别检验完成后进行检验</p>
+<h1 id="5-简要说明FHS结构"><a href="#5-简要说明FHS结构" class="headerlink" title="5.简要说明FHS结构"></a>5.简要说明FHS结构</h1><p>FHS 表示文件系统层级结构</p>
+<p><img src="image-20220730175442266.png" srcset="/img/loading.gif" lazyload alt="image-20220730175442266"></p>
+<p><img src="image-20220730175240992.png" srcset="/img/loading.gif" lazyload alt="image-20220730175240992"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs bash">/<br>根目录，所有的目录、文件、设备都在/之下<br><br>/boot<br><br>开机所需文件—内核、开机菜单以及所需配置文件等<br><br>/dev<br><br>以文件形式存放任何设备与接口<br><br>/etc<br><br>配置文件。如账号密码文件、 各种服务的启始档等。FHS建议几个重要的目录最好要存在 /etc/ 目录下，/etc/opt(必要)：这个目录在放置第三方协力软件 /opt 的相关配置文件， /etc/X11/(建议)：与 X Window 有关的各种配置文件都在这里，/etc/sgml/(建议)：与 SGML 格式有关的各项配置文件，/etc/xml/(建议)：与 XML 格式有关的各项配置文件<br><br>/home<br><br>用户家目录。新增用户账号默认匹配此目录。<br><br>/bin<br><br>存放单用户模式下还可以操作的命令<br><br>/lib<br><br>开机时用到的函数库，以及/bin 与/sbin 下面的命令要调用的函数<br><br>/sbin<br><br>开机过程中需要的命令。包括了开机、修复、还原系统所需要的指令。<br><br>/media<br><br>用于挂载设备文件的目录<br><br>/opt<br><br>放置第三方的软件<br><br>/root<br><br>系统管理员的家目录<br><br>/srv<br><br>一些网络服务的数据文件目录。常见的服务例如 WWW, FTP 等等。<br><br>/tmp<br><br>任何人均可使用的“共享”临时目录。一般用户或者是正在执行的程序暂时放置文件的地方。<br><br>/usr/local<br><br>用户自行安装的软件<br><br>/usr/sbin<br><br>Linux 系统开机时不会使用到的软件/命令/脚本<br><br>/usr/share<br><br>帮助与说明文件，也可放置共享文件<br><br>/var<br><br>主要存放经常变化的文件，如日志。<br><br>/proc<br><br>虚拟文件系统，例如系统内核、进程、外部设备及网络状态等。此目录本身是一个虚拟文件系统(virtual filesystem)，放置的数据都是在内存当中， 例如系统核心、行程信息(process)、周边装置的状态及网络状态等等。<br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="6-用自己的理解总结-文件管理，用户管理，组用户，权限管理相关的命令。"><a href="#6-用自己的理解总结-文件管理，用户管理，组用户，权限管理相关的命令。" class="headerlink" title="6.用自己的理解总结 文件管理，用户管理，组用户，权限管理相关的命令。"></a>6.用自己的理解总结 文件管理，用户管理，组用户，权限管理相关的命令。</h1><p>用户管理：</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs diff">用户类型：<br>管理员用户 root<br>普通用户：系统用户/程序用户(为某一程序专门使用的用户)<br>windos旗舰版下创建用户，计算机右键管理，本地用户和组里可以创建用户<br><br>与用户相关的文件<br>/etc/passwd<br>用户名 密码占位符 uid 基本组id 用户描述 家目录  shell<br>shell：<br>/bin/bash 默认格式<br>/sbin/nologin 禁止登录，一般为系统用户使用<br>0-999位系统用户uid <br>/etc/shadow<br>用户名 密码 最短密码时间 密码过期时间提示	<br>用户组<br>基本组/附加组，基本组只能有一个，附加组可以有多个<br><br>创建用户 usetadd   [选项] 用户名称<br>useradd zabbix 创建一个zabbix用户<br>会自动创建家目录<br>/etc/passwd会有数据<br>/etc/shadow会有数据<br>/var/spool/mail会有数据，此路径为给用户发送邮件保存的路径<br><br>useradd  -u 2000 user1  指定uid为2000<br><span class="hljs-deletion">-g 指定用户基本组  (组必须存在)</span><br><span class="hljs-deletion">-G 指定用户的附加组 (组必须存在)</span><br><span class="hljs-deletion">-s 用户登录的shell</span><br><span class="hljs-deletion">- M不创建家目录</span><br><span class="hljs-deletion">-r 创建一个系统用户，并没有家目录</span><br><span class="hljs-deletion">-d 指定一个目录作为用户家目录</span><br><br>切换用户 su - 用户名<br>su - zabbix 切换到zabbix用户<br>带-时所在目录也会切换<br><br>删除用户：userdel  用户名<br><span class="hljs-deletion">-r  删除用户的同时删除家目录</span><br><br>显示用户id信息 id 用户名<br><span class="hljs-deletion">-u 只显示用户uid</span><br><br><br>设置用户密码 passwd  用户名<br><span class="hljs-deletion">-S 查看用户密码状态</span><br><span class="hljs-deletion">-l 锁定一个用户密码</span><br><span class="hljs-deletion">-u 解锁用户密码</span><br><span class="hljs-deletion">-e  强制用户密码过期</span><br><br>修改用户信息<br>usermod  用户名<br><span class="hljs-deletion">-u 改用户的uid</span><br><span class="hljs-deletion">-g  修改用户的基本组</span><br><span class="hljs-deletion">-G  修改用户的附加组</span><br><span class="hljs-deletion">-aG  追加附加组</span><br>usermod  -G  附加组名  用户名<br></code></pre></td></tr></table></figure>
+
+<p>组用户</p>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs ldif">用户类型：<br>管理员用户组： root<br>普通用户组：系统组（对守护进程获取资源进行权限分配）/普通组（用户使用）<br><br>与用户组相关的文件<br>/etc/group：组及其属性信息<br>群组名称 群组密码 GID 以当前组为附加组的用户列表(分隔符为逗号)<br>/etc/gshadow：组密码及其相关属性<br>群组名称 群组密码 组管理员列表 以当前组为附加组的用户列表：多个用户间用逗号分隔<br><br>groupadd实现创建组<br><span class="hljs-literal">-</span>g GID 指明GID号；[GID_MIN, GID_MAX]<br><span class="hljs-literal">-</span>r 创建系统组，CentOS 6之前: ID&lt;500，CentOS 7以后: ID&lt;1000<br><br>groupmod 组属性修改<br><span class="hljs-literal">-</span>n group_name: 新名字<br><span class="hljs-literal">-</span>g GID: 新的GID<br><br>groupdel 可以删除组<br><span class="hljs-literal">-</span>f, --force 强制删除，即使是用户的主组也强制删除组,但会导致无主组的用户不可用无法登录<br><br>gpasswd命令，可以更改组密码，也可以修改附加组的成员关系<br><span class="hljs-literal">-</span>a user 将user添加至指定组中<br><span class="hljs-literal">-</span>d user 从指定附加组中移除用户user<br><span class="hljs-literal">-</span>A user1,user2,... 设置有管理权限的用户列表<br><br>groupmems 可以管理附加组的成员关系<br><span class="hljs-literal">-</span>g, --group groupname  <span class="hljs-comment">#更改为指定组 (只有root)</span><br><span class="hljs-literal">-</span>a, --add username   <span class="hljs-comment">#指定用户加入组</span><br><span class="hljs-literal">-</span>d, --delete username <span class="hljs-comment">#从组中删除用户</span><br><span class="hljs-literal">-</span>p, --purge        <span class="hljs-comment">#从组中清除所有成员</span><br><span class="hljs-literal">-</span>l,  --list         <span class="hljs-comment">#显示组成员列表</span><br><br>groups 可查看用户组关系<br><br></code></pre></td></tr></table></figure>
+
+<p>文件管理</p>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs ldif">文件权限分为三种<br>owner 属主, u<br>group 属组, g<br>other 其他, o<br><br>chown 命令可以修改文件的属主，也可以修改文件属组<br>OWNER  <span class="hljs-comment">#只修改所有者</span><br><span class="hljs-attribute">OWNER</span>:GROUP <span class="hljs-comment">#同时修改所有者和属组</span><br>:GROUP  <span class="hljs-comment">#只修改属组，冒号也可用 . 替换</span><br><span class="hljs-literal">-</span>-reference=RFILE  <span class="hljs-comment">#参考指定的的属性，来修改 </span><br><span class="hljs-literal">-</span>R <span class="hljs-comment">#递归，此选项慎用，非常危险！</span><br><br>chgrp 命令可以只修改文件的属组<br><span class="hljs-literal">-</span>R <span class="hljs-comment">#递归</span><br><br>chmod 命令可以修改文件的权限<br><span class="hljs-attribute">who</span>:u,g,o,a<br><span class="hljs-attribute">opt</span>:+,-,=<br><span class="hljs-attribute">permission</span>:r,w,x<br>修改指定一类用户的所有权限<br>u=  g= o= ug=  a= u=,g=<br>修改指定一类用户某个或某个权限<br>u+ u- g+ g- o+ o- a+ a- + -<br><span class="hljs-literal">-</span>R: 递归修改权限<br></code></pre></td></tr></table></figure>
+
+<p>权限管理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><code class="hljs bash">文件的权限<br>r 可使用文件查看类工具，比如：<span class="hljs-built_in">cat</span>，可以获取其内容<br>w 可修改其内容,文件的是否被删除和文件的权限无关<br>x 可以把此文件提请内核启动为一个进程，即可以执行（运行）此文件（此文件的内容必须是可执行）<br>文件权限常见组合<br>--- 0<br>r  4<br>r-x 5<br>rw 6<br>rwx 7<br><br>目录的权限<br>r 可以使用<span class="hljs-built_in">ls</span>查看此目录中文件名列表,但无法看到文件的属性meta信息,包括inode号,不能查看文件的<br>内容<br>w 可在此目录中创建文件，也可删除此目录中的文件，而和此被删除的文件的权限无关<br>x 可以<span class="hljs-built_in">cd</span>进入此目录，可以使用<span class="hljs-built_in">ls</span> -l file或<span class="hljs-built_in">stat</span> file 查看此目录中指定文件的元数据，当预先知<br>道文件名称时,也可以查看文件的内容,属于目录的可访问的最小权限<br>X 分配给目录或有部分x权限的文件的x权限，对无任意x权限的文件则不会分配x权限<br>目录权限常见组合<br>-  不能访问目录<br>r-x 只读目录<br>rwx 可读也可写目录<br><br><span class="hljs-built_in">chmod</span> 命令可以修改文件的权限<br><span class="hljs-built_in">who</span>:u,g,o,a<br>opt:+,-,=<br>permission:r,w,x<br>修改指定一类用户的所有权限<br>u=  g= o= ug=  a= u=,g=<br>修改指定一类用户某个或某个权限<br>u+ u- g+ g- o+ o- a+ a- + -<br>-R: 递归修改权限<br><br><span class="hljs-built_in">umask</span> 的值可以用来保留在创建文件权限<br>非特权用户<span class="hljs-built_in">umask</span>默认是 002<br>root的<span class="hljs-built_in">umask</span> 默认是 022<br>查看<span class="hljs-built_in">umask</span>   <span class="hljs-built_in">umask</span> –S<br>修改<span class="hljs-built_in">umask</span>   <span class="hljs-built_in">umask</span> <span class="hljs-comment">#</span><br><br>特殊权限<br>SUID 作用于二进制可执行文件上,用户将继承此程序所有者的权限<br>SGID<br>作用于二进制可执行文件上,用户将继承此程序所有组的权限<br>作于于目录上, 此目录中新建的文件的所属组将自动从此目录继承<br>STICKY 作用于目录上,此目录中的文件只能由所有者自已来删除<br><br><br>SUID<br><span class="hljs-built_in">chmod</span> u+s FILE... <br><span class="hljs-built_in">chmod</span> 4xxx FILE<br><span class="hljs-built_in">chmod</span> u-s FILE...<br><br>SGID<br><span class="hljs-built_in">chmod</span> g+s FILE...<br><span class="hljs-built_in">chmod</span> 2xxx FILE<br><span class="hljs-built_in">chmod</span> g-s FILE...<br><br>STICKY<br><span class="hljs-built_in">chmod</span> o+t DIR...<br><span class="hljs-built_in">chmod</span> 1xxx DIR<br><span class="hljs-built_in">chmod</span> o-t DIR...<br><br>设置文件的特殊属性，可以访问 root 用户误操作删除或修改文件,不能删除，改名，更改<br>chattr +i file<br>只能追加内容，不能删除，改名<br>chattr +a file<br><br><br><br>ACL：Access Control List，实现灵活的权限管理<br>除了文件的所有者，所属组和其它人，可以对更多的用户设置权限<br>CentOS7 默认创建的xfs和ext4文件系统具有ACL功能<br>CentOS7 之前版本，默认手工创建的ext4文件系统无ACL功能,需手动增加<br><br>setfacl 可设置ACL权限<br>getfacl 可查看设置的ACL权限<br><br><br>mask 权限<br>mask只影响除所有者和other的之外的人和组的最大权限<br>mask需要与用户的权限进行逻辑与运算后，才能变成有限的权限(Effective Permission)<br>用户或组的设置必须存在于mask权限设定范围内才会生效<br>setfacl -m mask::rx file<br><br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/08/07/%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第二周作业</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

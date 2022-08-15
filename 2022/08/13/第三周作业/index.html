@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="背景1.基于nexus3的yum私有仓库的实现1.1 nexus3介绍Nexus 是一个强大的maven仓库管理器，它极大地简化了本地内部仓库的维护和外部仓库的访问。 不仅如此，他还可以用来创建yum、pypi、npm、docker、nuget、rubygems 等各种私有仓库。 所支持的类型，可从下图管窥：  如果使用了公共的 Maven 仓库服务器，可以从 Maven 中央仓库下载所需要的构件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三周作业">
+<meta property="og:url" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="5-12 23:30">
+<meta property="og:description" content="背景1.基于nexus3的yum私有仓库的实现1.1 nexus3介绍Nexus 是一个强大的maven仓库管理器，它极大地简化了本地内部仓库的维护和外部仓库的访问。 不仅如此，他还可以用来创建yum、pypi、npm、docker、nuget、rubygems 等各种私有仓库。 所支持的类型，可从下图管窥：  如果使用了公共的 Maven 仓库服务器，可以从 Maven 中央仓库下载所需要的构件">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://t.eryajf.net/imgs/2021/09/b73cb089b60ab885.jpg">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813214019896.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813214233882.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813214308879.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813214340393.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813214647174.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813214723753.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813215030659.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813215106200.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813215459013.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813220150406.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813220451105.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813222000925.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813232815277.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220813233221958.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220814004217308.png">
+<meta property="og:image" content="http://example.com/2022/08/13/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/image-20220814005659467.png">
+<meta property="article:published_time" content="2022-08-13T19:49:51.000Z">
+<meta property="article:modified_time" content="2022-08-15T11:40:11.087Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://t.eryajf.net/imgs/2021/09/b73cb089b60ab885.jpg">
+  
+  
+  <title>第三周作业 - 5-12 23:30</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="第三周作业">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-08-13 19:49" pubdate>
+        August 13, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      45 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第三周作业</h1>
+            
+            <div class="markdown-body">
+              <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h1 id="1-基于nexus3的yum私有仓库的实现"><a href="#1-基于nexus3的yum私有仓库的实现" class="headerlink" title="1.基于nexus3的yum私有仓库的实现"></a>1.基于nexus3的yum私有仓库的实现</h1><h2 id="1-1-nexus3介绍"><a href="#1-1-nexus3介绍" class="headerlink" title="1.1 nexus3介绍"></a>1.1 nexus3介绍</h2><p>Nexus 是一个强大的maven仓库管理器，它极大地简化了本地内部仓库的维护和外部仓库的访问。</p>
+<p>不仅如此，他还可以用来创建yum、pypi、npm、docker、nuget、rubygems 等各种私有仓库。</p>
+<p>所支持的类型，可从下图管窥：</p>
+<p><img src="http://t.eryajf.net/imgs/2021/09/b73cb089b60ab885.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>如果使用了公共的 Maven 仓库服务器，可以从 Maven 中央仓库下载所需要的构件（Artifact），但这通常不是一个好的做法。 正常做法是在本地架设一个 Maven 仓库服务器，即利用 Nexus 私服可以只在一个地方就能够完全控制访问和部署在你所维护仓库中的每个 Artifact。 Nexus 在代理远程仓库的同时维护本地仓库，以降低中央仓库的负荷, 节省外网带宽和时间，Nexus 私服就可以满足这样的需要。 Nexus 是一套 “开箱即用” 的系统不需要数据库，它使用文件系统加 Lucene 来组织数据。 Nexus 使用 ExtJS 来开发界面，利用 Restlet 来提供完整的 REST APIs，通过 m2eclipse 与 Eclipse 集成使用。 Nexus 支持 WebDAV 与 LDAP 安全身份认证。 Nexus 还提供了强大的仓库管理功能，构件搜索功能，它基于 REST，友好的 UI 是一个 extjs 的 REST 客户端，它占用较少的内存，基于简单文件系统而非数据库</p>
+<h2 id="1-2docker安装部署nexus3"><a href="#1-2docker安装部署nexus3" class="headerlink" title="1.2docker安装部署nexus3"></a>1.2docker安装部署nexus3</h2><p>创建docker挂载目录并添加权限</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs awk">mkdir <span class="hljs-regexp">/data/</span>nexus  <span class="hljs-comment">#创建挂载目录</span><br><br>chown -R <span class="hljs-number">200</span> <span class="hljs-regexp">/data/</span>nexus  <span class="hljs-comment">#添加对应权限</span><br></code></pre></td></tr></table></figure>
+
+<p>下载docker并运行</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs cmake">yum -y <span class="hljs-keyword">install</span> docker-io<br><br>systemctl start docker<br></code></pre></td></tr></table></figure>
+
+<p>下载镜像并运行</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker pull sonatype/nexus3<br><br>docker run -d -p <span class="hljs-number">8081</span>:<span class="hljs-number">8081</span> --name nexus -v <span class="hljs-regexp">/data/</span>nexus:<span class="hljs-regexp">/nexus-data sonatype/</span>nexus3<br></code></pre></td></tr></table></figure>
+
+<p>浏览器访问nexus</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">http:<span class="hljs-regexp">//</span>	&#123;本机ip&#125;:<span class="hljs-number">8081</span><br></code></pre></td></tr></table></figure>
+
+<p>初次进入需要登录账户名默认为admin 密码存储于/data/nexus/admin-password下</p>
+<p>初次登录后需修改密码，密码可自行设置</p>
+<p><img src="image-20220813214019896.png" srcset="/img/loading.gif" lazyload alt="image-20220813214019896"></p>
+<h2 id="1-3-创建blob存储"><a href="#1-3-创建blob存储" class="headerlink" title="1.3 创建blob存储"></a>1.3 创建blob存储</h2><p>为yum仓库创建一个单独的存储空间，命名为<code>yum-hub</code></p>
+<p><img src="image-20220813214233882.png" srcset="/img/loading.gif" lazyload alt="image-20220813214233882"></p>
+<p><img src="image-20220813214308879.png" srcset="/img/loading.gif" lazyload alt="image-20220813214308879"></p>
+<p>类型选择file 名字填写 yum-hub</p>
+<p><img src="image-20220813214340393.png" srcset="/img/loading.gif" lazyload alt="image-20220813214340393"></p>
+<p><img src="image-20220813214647174.png" srcset="/img/loading.gif" lazyload alt="image-20220813214647174"></p>
+<p><img src="image-20220813214723753.png" srcset="/img/loading.gif" lazyload alt="image-20220813214723753"></p>
+<p>创建完成后可以看到yum-hub</p>
+<h2 id="1-4创建不同类型yum库"><a href="#1-4创建不同类型yum库" class="headerlink" title="1.4创建不同类型yum库"></a>1.4创建不同类型yum库</h2><p>分别创建hosted，proxy，group三种类型的yum库</p>
+<p><img src="image-20220813215030659.png" srcset="/img/loading.gif" lazyload alt="image-20220813215030659"></p>
+<p><img src="image-20220813215106200.png" srcset="/img/loading.gif" lazyload alt="image-20220813215106200"></p>
+<p>创建hosted类型的yum库</p>
+<ul>
+<li><code>Name</code>:：定义一个名称local-yum</li>
+<li><code>Storage</code>：Blob store，我们下拉选择前面创建好的专用blob：yum-hub。</li>
+<li><code>Hosted</code>：开发环境，我们运行重复发布，因此Delpoyment policy 我们选择Allow redeploy。这个很重要</li>
+</ul>
+<p><img src="image-20220813215459013.png" srcset="/img/loading.gif" lazyload alt="image-20220813215459013"></p>
+<p>创建proxy类型的yum库</p>
+<ul>
+<li><code>Name</code>: proxy-163-yum</li>
+<li><code>Proxy</code>：Remote Storage: 远程仓库地址，这里填写: <a target="_blank" rel="noopener" href="http://mirrors.163.com/centos/">http://mirrors.163.com/centos/</a></li>
+<li><code>Storage</code>: yum-hub</li>
+</ul>
+<p><img src="image-20220813220150406.png" srcset="/img/loading.gif" lazyload alt="image-20220813220150406"></p>
+<p>创建group类型的yum库</p>
+<ul>
+<li><code>Name</code>：group-yum</li>
+<li><code>Storage</code>：选择专用的blob存储yum-hub。</li>
+<li><code>group</code> : 将左边可选的2个仓库，添加到右边的members下</li>
+</ul>
+<p><img src="image-20220813220451105.png" srcset="/img/loading.gif" lazyload alt="image-20220813220451105"></p>
+<p>全部配置完成后去设置yum源</p>
+<h2 id="1-5构建本地yum缓存"><a href="#1-5构建本地yum缓存" class="headerlink" title="1.5构建本地yum缓存"></a>1.5构建本地yum缓存</h2><p>将原有的yum源移走</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs perl">[root@k10 ~]<span class="hljs-comment"># cd /etc/yum.repos.d/</span><br>[root@k10 yum.repos.d] <span class="hljs-keyword">mkdir</span> bak <br>[root@k10 yum.repos.d] mv ./*.repo bak/<br><br></code></pre></td></tr></table></figure>
+
+<p>创建一个新的yum源，并添加下面的内容</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs awk">vim <span class="hljs-regexp">/etc/yum</span>.repo.d/nexus.repo<br><br>[nexus]<br>name=Nexus3<br>baseurl=http:<span class="hljs-regexp">//</span><span class="hljs-number">172.31</span>.<span class="hljs-number">20.10</span>:<span class="hljs-number">8081</span><span class="hljs-regexp">/repository/g</span>roup-yum<span class="hljs-regexp">/7/</span>os<span class="hljs-regexp">/$basearch/</span><br>enable=<span class="hljs-number">1</span><br>gpgcheck=<span class="hljs-number">0</span><br><br><span class="hljs-comment">#released updates</span><br>[updates]<br>name=CentOS-<span class="hljs-number">7</span>-Updates-<span class="hljs-number">163</span>.com<br><span class="hljs-comment">#mirrorlist=http://mirrorlist.centos.org/?release=7&amp;arch=$basearch&amp;repo=updates</span><br>baseurl=http:<span class="hljs-regexp">//mi</span>rrors.<span class="hljs-number">163</span>.com<span class="hljs-regexp">/centos/</span><span class="hljs-number">7</span><span class="hljs-regexp">/updates/</span><span class="hljs-variable">$basearch</span>/<br>gpgcheck=<span class="hljs-number">1</span><br>gpgkey=http:<span class="hljs-regexp">//mi</span>rrors.<span class="hljs-number">163</span>.com<span class="hljs-regexp">/centos/</span>RPM-GPG-KEY-CentOS-<span class="hljs-number">7</span><br> <br><span class="hljs-comment">#additional packages that may be useful</span><br>[extras]<br>name=CentOS-<span class="hljs-number">7</span>-Extras-<span class="hljs-number">163</span>.com<br><span class="hljs-comment">#mirrorlist=http://mirrorlist.centos.org/?release=7&amp;arch=$basearch&amp;repo=extras</span><br>baseurl=http:<span class="hljs-regexp">//mi</span>rrors.<span class="hljs-number">163</span>.com<span class="hljs-regexp">/centos/</span><span class="hljs-number">7</span><span class="hljs-regexp">/extras/</span><span class="hljs-variable">$basearch</span>/<br>gpgcheck=<span class="hljs-number">1</span><br>gpgkey=http:<span class="hljs-regexp">//mi</span>rrors.<span class="hljs-number">163</span>.com<span class="hljs-regexp">/centos/</span>RPM-GPG-KEY-CentOS-<span class="hljs-number">7</span><br> <br><span class="hljs-comment">#additional packages that extend functionality of existing packages</span><br>[centosplus]<br>name=CentOS-<span class="hljs-number">7</span>-Plus-<span class="hljs-number">163</span>.com<br>baseurl=http:<span class="hljs-regexp">//mi</span>rrors.<span class="hljs-number">163</span>.com<span class="hljs-regexp">/centos/</span><span class="hljs-number">7</span><span class="hljs-regexp">/centosplus/</span><span class="hljs-variable">$basearch</span>/<br>gpgcheck=<span class="hljs-number">1</span><br>enabled=<span class="hljs-number">0</span><br>gpgkey=http:<span class="hljs-regexp">//mi</span>rrors.<span class="hljs-number">163</span>.com<span class="hljs-regexp">/centos/</span>RPM-GPG-KEY-CentOS-<span class="hljs-number">7</span> <br></code></pre></td></tr></table></figure>
+
+<p>构建缓存，确认下group-yum下是否存在包</p>
+<p><img src="image-20220813222000925.png" srcset="/img/loading.gif" lazyload alt="image-20220813222000925"></p>
+<p>机器上执行操作，确认已经有数据了</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs livescript">[root@k10 yum.repos.d]<span class="hljs-comment"># yum clean all</span><br><br>[root@k10 yum.repos.d]<span class="hljs-comment"># yum makecache </span><br><br>[root@k10 yum.repos.d]<span class="hljs-comment"># yum repolist</span><br>已加载插件：fastestmirror, product-id, search-disabled-repos, subscription-manager<br><br>This system <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> registered <span class="hljs-keyword">with</span> an entitlement server. You can use subscription-manager <span class="hljs-keyword">to</span> register.<br><br>Loading mirror speeds <span class="hljs-keyword">from</span> cached hostfile<br>源标识                                                                                                                                                           源名称                                                                                                                                                                      状态<br>extras/x86_64                                                                                                                                                    CentOS-<span class="hljs-number">7</span>-Extras-<span class="hljs-number">163.com</span>                                                                                                                                                        <span class="hljs-number">512</span><br>nexus/x86_64                                                                                                                                                     Nexus3                                                                                                                                                                      <span class="hljs-number">10</span>,<span class="hljs-number">072</span><br>updates/x86_64                                                                                                                                                   CentOS-<span class="hljs-number">7</span>-Updates-<span class="hljs-number">163.com</span>                                                                                                                                                     <span class="hljs-number">4</span>,<span class="hljs-number">101</span><br>repolist: <span class="hljs-number">14</span>,<span class="hljs-number">685</span><br><br></code></pre></td></tr></table></figure>
+
+<p>返回页面上查看也有数据存在了</p>
+<p><img src="image-20220813232815277.png" srcset="/img/loading.gif" lazyload alt="image-20220813232815277"></p>
+<p>离线环境下载软件包测试，正常安装</p>
+<p><img src="image-20220813233221958.png" srcset="/img/loading.gif" lazyload alt="image-20220813233221958"></p>
+<h1 id="2-TCP协议和三次握手及四次挥手"><a href="#2-TCP协议和三次握手及四次挥手" class="headerlink" title="2.TCP协议和三次握手及四次挥手"></a>2.TCP协议和三次握手及四次挥手</h1><h2 id="2-1-三次握手"><a href="#2-1-三次握手" class="headerlink" title="2.1 三次握手"></a>2.1 三次握手</h2><p><img src="image-20220814004217308.png" srcset="/img/loading.gif" lazyload alt="image-20220814004217308"></p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs axapta">SYN	请求号标记位<br>ACK	确认号标记位<br>seq	序号，代表请求方将会发送的数据的第一个字节编号<br>ack	返回的确认号，代表接收方收到收据后（也就是前面说的seq），代表希望对方下一次传输数据的第一个字节编号<br><br>CLOSED	<span class="hljs-keyword">client</span>处于关闭状态<br>LISTEN	<span class="hljs-keyword">server</span>处于监听状态，等待<span class="hljs-keyword">client</span>连接<br>SYN-RCVD	表示<span class="hljs-keyword">server</span>接受到了SYN报文，当收到<span class="hljs-keyword">client</span>的ACK报文后，它会进入到ESTABLISHED状态<br>SYN-SENT	表示<span class="hljs-keyword">client</span>已发送SYN报文，等待<span class="hljs-keyword">server</span>的第<span class="hljs-number">2</span>次握手<br>ESTABLISHED	表示连接已经建立<br></code></pre></td></tr></table></figure>
+
+<p>第一次握手：客户端第一次发送一条连接请求数据，SYN = 1，ACK = 0就是代表建立连接请求，发送的具体数据第一个字节编号记为x，赋值seq。</p>
+<p>第二次握手：服务端收到请求后，返回 客户端的SYN = 1,加上自己的确认号ACK=1,发送的具体数据第一个字节编号记为y，赋值seq，希望客户端下一次返回编号x + 1个字节为止的数据，记为ack = x + 1。</p>
+<p>客户端得出客户端发送接收能力正常，服务端发送接收能力也都正常，但是此时服务器并不能确认客户端的接收能力是否正常</p>
+<p>第三次握手：客户端收到服务端返回的请求确认后，再次发送数据，原封不动返回ACK = 1,这里就不需要再发送 SYN=1了，为什么呢？因为此时并不是跟服务端进行连接请求，而是连接确认，所以只需要返回ACK = 1代表确认，同样的，发送的具体数据第一个字节编号记为seq = x + 1，希望服务端下次传输的数据第一个字节编号记为ack = y + 1</p>
+<p>为什么TCP建立连接时候，要进行3次握手，2次不行吗？<br>一句话的答案：主要目的:防止server端一直等待，浪费资源，</p>
+<p>如果建立连接只需要2次握手，可能会出现的情况<br>假设client发出的第一个连接请求报文段，因为网络延迟，在连接释放以后的某个时间才到达server 。<br>本来这是一个早已失效的连接请求，但server收到此失效的请求后，误认为是client再次发出的一个新的连接请求 。<br>于是server就向client发出确认报文段，同意建立连接。<br>如果不采用“3次握手”，那么只要server发出确认，新的连接就建立了 。<br>由于现在client并没有真正想连接服务器的意愿，因此不会理睬server的确认，也不会向server发送数据 。<br>但server却以为新的连接已经建立，并一直等待client发来数据，这样，server的很多资源就白白浪费掉了<br>采用“三次握手”的办法可以防止上述现象发生 ，例如上述情况，client没有向server的确认发出确认，server由于收不到确认，就知道client并没有要求建立连接。</p>
+<h2 id="2-2四次挥手"><a href="#2-2四次挥手" class="headerlink" title="2.2四次挥手"></a>2.2四次挥手</h2><p><img src="image-20220814005659467.png" srcset="/img/loading.gif" lazyload alt="image-20220814005659467"></p>
+<p>第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。<br>第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。<br>第三次挥手：Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。<br>第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手</p>
+<p>为什么建立连接是三次握手，关闭连接确是四次挥手呢？<br>建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。<br>而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。为了确保正确关闭连接，所以需要四次。</p>
+<p>TIME_WAIT状态有什么作用，为什么主动关闭方没有直接进入CLOSED状态释放资源？<br>答：防止连接关闭时四次挥手中的最后一次ACK丢失：如果主动关闭方进入CLOSED状态后，被动关闭方发送FIN包后没有得到ACK确认，超时后就会重传一个FIN包。如果客户端没有TIME_WAIT状态而直接进入CLOSED状态释放资源，下次启动新的客户端就可能使用了与之前客户端相同的地址信息，有两个危害，第一种是这个刚启动的新的客户端绑定地址成功时，就会收到了一个重传的FIN包，对新连接就会造成影响。第二种是如果该新客户端向相同的服务端发送SYN连接请求，但是此时服务端处于LAST_ACK状态，要求收到的是ACK而不是SYN，因此就会发送RST重新建立请求。</p>
+<p>为什么TIME_WAIT状态需要经过2MSL才能进入CLOSE状态?<br>答：MSL指的是报文在网络中最大生存时间。在客户端发送对服务端的FIN确认包ACK后，这个ACK包有可能到达不了，服务器端如果接收不到ACK包就会重新发送FIN包。所以客户端发送ACK后需要留出2MSL时间（ACK到达服务器器+服务器发送FIN重传包，一来一回）等待确认服务器端缺失收到了ACK包。也就是说客户端如果等待2MSL时间也没收到服务器端重传的FIN包，则就可以确认服务器已经收到客户端发送的ACK包</p>
+<p>这周有点忙，剩余的作业后面的会补全！</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/08/07/%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A/">
+                        <span class="hidden-mobile">第二周作业</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
